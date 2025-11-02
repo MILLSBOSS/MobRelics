@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.MILLSBOSS</groupId>
-    <artifactId>silkpro</artifactId>
+    <artifactId>SilkPROPLUS</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>silkpro</name>
+    <name>SilkPROPLUS</name>
 
     <properties>
         <java.version>21</java.version>

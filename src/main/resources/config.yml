@@ -1,0 +1,16 @@
+# EggDrops Configuration
+#
+# Set per-mob drop chances (in percent) for spawn eggs when a player kills the mob.
+# 0.0 disables drops for that mob. Any non-zero value is clamped to the range [0.01, 100.0].
+#
+# Mobs are organized by dimension. Entries will be auto-populated here the first time the
+# plugin runs with only valid mobs that have vanilla spawn eggs.
+
+# Overworld mobs and their drop chances
+overworld: {}
+
+# Nether mobs and their drop chances
+nether: {}
+
+# End mobs and their drop chances
+end: {}
