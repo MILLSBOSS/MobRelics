@@ -67,7 +67,10 @@ public class SpawnerSilkListener implements Listener {
         event.setDropItems(false);
         event.setExpToDrop(0);
         block.setType(Material.AIR);
-        block.getWorld().dropItemNaturally(block.getLocation(), drop);
+        // Drop the spawner item centered and without random sideways velocity so it falls straight down
+        org.bukkit.Location dropLoc = block.getLocation().add(0.5, 0.75, 0.5);
+        org.bukkit.entity.Item dropped = block.getWorld().dropItem(dropLoc, drop);
+        dropped.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
 
         if (player.isSneaking()) {
             player.sendMessage(ChatColor.GRAY + "You mined a spawner with " + ChatColor.AQUA + "SilkPRO" + ChatColor.GRAY + " (preserved type).");
