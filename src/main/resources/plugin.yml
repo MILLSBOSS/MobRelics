@@ -1,4 +1,4 @@
-name: SilkPROPLUS
+name: MobRelics
 version: '1.0'
-main: me.MILLSBOSS.silkPROPLUS.SilkPROPLUS
+main: me.MILLSBOSS.mobRelics.MobRelics
 api-version: '1.21'

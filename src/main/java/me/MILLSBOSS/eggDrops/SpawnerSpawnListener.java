@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class SpawnerSpawnListener implements Listener {
 
-    public static final String META_SPAWNER_TAG = "silkproplus-spawner";
+    public static final String META_SPAWNER_TAG = "mobrelics-spawner";
 
     private final JavaPlugin plugin;
 
