@@ -12,7 +12,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RelicLawCommand implements CommandExecutor {
@@ -72,10 +71,7 @@ public class RelicLawCommand implements CommandExecutor {
         // Tag the item and add lore
         pdc.set(key, PersistentDataType.BOOLEAN, true);
 
-        List<String> lore = meta.getLore();
-        if (lore == null) lore = new ArrayList<>();
-        lore.add(ChatColor.AQUA + "Relics Law I");
-        meta.setLore(lore);
+        meta.setLore(List.of(ChatColor.AQUA + "Relics Law I"));
 
         item.setItemMeta(meta);
 

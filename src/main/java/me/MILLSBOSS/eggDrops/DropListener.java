@@ -1,6 +1,7 @@
 package me.MILLSBOSS.eggDrops;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -9,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Locale;
@@ -18,17 +20,19 @@ public class DropListener implements Listener {
 
     private final JavaPlugin plugin;
     private final Random random;
+    private final NamespacedKey spawnerKey;
 
     public DropListener(JavaPlugin plugin, Random random) {
         this.plugin = plugin;
         this.random = random;
+        this.spawnerKey = new NamespacedKey(plugin, SpawnerSpawnListener.SPAWNER_TAG_KEY);
     }
 
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event) {
         if (!(event.getEntity() instanceof LivingEntity living)) return;
         Player killer = living.getKiller();
-        boolean spawnerSpawned = living.hasMetadata(SpawnerSpawnListener.META_SPAWNER_TAG);
+        boolean spawnerSpawned = living.getPersistentDataContainer().has(spawnerKey, PersistentDataType.BYTE);
         // Preserve original behavior (player kills) but also allow equal chance for spawner-spawned mobs
         // even if they die without a direct player killer (e.g., farm mechanics).
         if (killer == null && !spawnerSpawned) return;

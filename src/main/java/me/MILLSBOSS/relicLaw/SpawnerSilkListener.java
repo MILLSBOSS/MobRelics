@@ -33,7 +33,7 @@ public class SpawnerSilkListener implements Listener {
 
         Player player = event.getPlayer();
         ItemStack tool = player.getInventory().getItem(EquipmentSlot.HAND);
-        if (tool == null || tool.getType() == Material.AIR) return;
+        if (tool.getType() == Material.AIR) return;
         if (!RelicLawCommand.isSupportedPickaxe(tool.getType())) return;
 
         ItemMeta toolMeta = tool.getItemMeta();
@@ -85,7 +85,6 @@ public class SpawnerSilkListener implements Listener {
         if (event.getBlockPlaced().getType() != Material.SPAWNER) return;
 
         ItemStack inHand = event.getItemInHand();
-        if (inHand == null) return;
         ItemMeta meta = inHand.getItemMeta();
         if (!(meta instanceof BlockStateMeta bsm)) return;
 
